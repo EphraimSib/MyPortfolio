@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>smith.hub | Musixvoice · NyasaVault · Smith Agent</title>
+<style>
+:root{--bg:#0b0c0e;--s1:#121418;--s2:#181b20;--bd:#262a32;--tx:#f2f4f8;--mu:#9aa2b1;--ac:#7dd3fc;--ac2:#a78bfa;--ok:#34d399;--mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;--sans:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color-scheme:dark}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f6f7f9;--s1:#fff;--s2:#eef0f4;--bd:#d9dde5;--tx:#14171c;--mu:#5b6473;--ac:#0369a1;--ac2:#6d28d9;--ok:#047857;color-scheme:light}}
+:root[data-theme="light"]{--bg:#f6f7f9;--s1:#fff;--s2:#eef0f4;--bd:#d9dde5;--tx:#14171c;--mu:#5b6473;--ac:#0369a1;--ac2:#6d28d9;--ok:#047857;color-scheme:light}
+:root[data-theme="dark"]{color-scheme:dark}
+*{box-sizing:border-box;margin:0;padding:0}
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{background:var(--bg);color:var(--tx);font-family:var(--sans);line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.bar{background:var(--s2);border-bottom:1px solid var(--bd);padding:9px 14px;font:12px var(--mono);color:var(--mu);display:flex;justify-content:space-between;gap:10px;align-items:center}
+.bar b{color:var(--ac)}
+.x{background:none;border:1px solid var(--bd);color:var(--mu);border-radius:6px;width:26px;height:26px;cursor:pointer}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--bd)}
+.w{max-width:860px;margin:0 auto;padding:0 16px}
+.nav{display:flex;justify-content:space-between;align-items:center;height:54px;gap:10px}
+.brand{font:700 15px var(--mono)}
+.pill{font:500 11px var(--mono);color:var(--ok);border:1px solid var(--ok);padding:2px 8px;border-radius:99px;margin-left:8px;display:inline-flex;gap:5px;align-items:center}
+.pill i{width:6px;height:6px;border-radius:50%;background:var(--ok);animation:p 1.6s infinite}
+@keyframes p{50%{opacity:.25}}
+.links{display:flex;gap:6px;font:12px var(--mono);overflow-x:auto}
+.links a,.tg{padding:6px 10px;border:1px solid var(--bd);border-radius:8px;background:var(--s1);color:var(--mu);white-space:nowrap;cursor:pointer;font:12px var(--mono)}
+.links a:hover,.tg:hover{color:var(--tx);border-color:var(--ac)}
+main{padding:22px 0 80px;display:flex;flex-direction:column;gap:18px}
+.card{background:var(--s1);border:1px solid var(--bd);border-radius:14px;overflow:hidden}
+.top{padding:10px 14px;background:var(--s2);border-bottom:1px solid var(--bd);display:flex;justify-content:space-between;gap:10px;font:12px var(--mono);color:var(--mu)}
+.tag{border:1px solid var(--bd);padding:1px 8px;border-radius:6px;font-size:11px;color:var(--tx);background:var(--bg)}
+.body{padding:20px}
+h1{font:700 clamp(26px,6vw,40px)/1.12 var(--mono);letter-spacing:-.03em;margin-bottom:10px}
+h2{font:600 18px var(--mono);margin-bottom:8px}
+.sub{color:var(--mu);max-width:62ch;margin-bottom:18px}
+.cur{display:inline-block;width:.55ch;background:var(--ac);animation:p 1s steps(1) infinite}
+.row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:18px}
+.btn{font:12.5px var(--mono);padding:9px 14px;border-radius:8px;border:1px solid var(--bd);background:var(--s2);color:var(--tx);cursor:pointer}
+.btn.p{background:var(--tx);color:var(--bg);border-color:var(--tx);font-weight:600}
+.btn:hover{border-color:var(--ac)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding-top:14px;border-top:1px solid var(--bd);font-family:var(--mono)}
+.stats b{display:block;font-size:20px}.stats span{font-size:11px;color:var(--mu);text-transform:uppercase}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:700px){.two{grid-template-columns:1fr}}
+.mu{color:var(--mu);font-size:14px;margin-bottom:14px}
+/* player */
+.pl{display:flex;align-items:center;gap:12px;background:var(--bg);border:1px solid var(--bd);border-radius:10px;padding:10px}
+.pb{width:38px;height:38px;border-radius:50%;border:0;background:var(--ac);color:var(--bg);cursor:pointer;font-size:14px;flex:none}
+.wave{flex:1;display:flex;align-items:center;gap:2px;height:38px}
+.wave i{flex:1;background:var(--bd);border-radius:2px;min-height:4px;transition:background .2s}
+.wave i.on{background:var(--ac)}
+.tm{font:11px var(--mono);color:var(--mu)}
+.trk{list-style:none;margin-top:12px;font:12px var(--mono)}
+.trk li{display:flex;justify-content:space-between;padding:7px 8px;border-radius:6px;color:var(--mu);cursor:pointer}
+.trk li:hover,.trk li.a{background:var(--s2);color:var(--tx)}
+/* vault */
+.in{width:100%;background:var(--bg);border:1px solid var(--bd);color:var(--tx);border-radius:8px;padding:9px 12px;font:13px var(--mono);margin-bottom:10px}
+.in:focus{outline:none;border-color:var(--ac)}
+.files{list-style:none;font:12px var(--mono)}
+.files li{display:flex;justify-content:space-between;gap:8px;padding:7px 8px;border-bottom:1px solid var(--bd);color:var(--mu)}
+.files li b{color:var(--tx);font-weight:500}
+.files li:last-child{border:0}
+/* smith */
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.tab{font:12px var(--mono);padding:6px 12px;border-radius:8px;border:1px solid var(--bd);background:var(--bg);color:var(--mu);cursor:pointer}
+.tab.on{background:var(--ac);color:var(--bg);border-color:var(--ac);font-weight:600}
+.con{background:var(--bg);border:1px solid var(--bd);border-radius:10px;padding:14px;font:12.5px/1.6 var(--mono);min-height:150px;max-height:340px;overflow:auto;white-space:pre-wrap}
+.con .d{color:var(--ac)}.con .c{color:var(--ac2)}.con .g{color:var(--ok)}.con .m{color:var(--mu)}
+.ask{display:flex;gap:8px;margin-bottom:12px}.ask .in{margin:0}
+.note{font:11px var(--mono);color:var(--mu);margin-top:10px}
+/* roadmap + faq */
+.rm{list-style:none;font:13px var(--mono)}
+.rm li{padding:8px 0;border-bottom:1px solid var(--bd);display:flex;gap:10px;color:var(--mu)}
+.rm li:last-child{border:0}.rm .ck{color:var(--ok)}
+.fq{border-bottom:1px solid var(--bd);padding:10px 0}.fq:last-child{border:0}
+.fq button{all:unset;cursor:pointer;display:flex;justify-content:space-between;width:100%;font:13px var(--mono)}
+.fq p{display:none;color:var(--mu);font-size:13.5px;padding-top:8px}.fq.o p{display:block}
+footer{text-align:center;font:12px var(--mono);color:var(--mu);padding:10px 0 20px}
+.rv{opacity:0;transform:translateY(10px);transition:.5s}.rv.in-v{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="bar" id="bar"><div>~$ broadcast <b>PORTFOLIO</b> — projects in active development</div><button class="x" onclick="bar.remove()" aria-label="Dismiss">✕</button></div>
+<header><div class="w nav">
+<a href="#top" class="brand">smith.hub<span class="pill"><i></i>LIVE BUILD</span></a>
+<nav class="links"><a href="#musixvoice">Musixvoice</a><a href="#nyasavault">NyasaVault</a><a href="#smith">Smith</a><a href="#about">About</a><a href="#roadmap">Roadmap</a></nav>
+<button class="tg" id="th" aria-label="Toggle theme">◐</button>
+</div></header>
+
+<main class="w" id="top">
+<section class="card rv"><div class="top"><span>~$ landing/welcome.txt</span><span class="tag">WORKSPACE</span></div>
+<div class="body"><h1><span id="ty"></span><span class="cur"></span></h1>
+<p class="sub">Hi, I'm <b>Ephraim Sibale</b>, a developer building <b>Musixvoice</b> (a music app), <b>NyasaVault</b> (a secure personal vault) and <b>Smith Agent</b> (DeepSeek, Claude and Gemini working together on an answer). This is my portfolio.</p>
+<div class="row"><a class="btn p" href="#smith">TRY SMITH AGENT →</a><a class="btn" href="#musixvoice">MUSIXVOICE</a><a class="btn" href="#nyasavault">NYASAVAULT</a></div>
+<div class="stats"><div><b data-n="3">0</b><span>Core systems</span></div><div><b data-n="3">0</b><span>AI council</span></div><div><b>v1.1</b><span>Personal build</span></div></div></div></section>
+
+<div class="two">
+<section class="card rv" id="musixvoice"><div class="top"><span>~$ musixvoice/studio.log</span><span class="tag">AUDIO</span></div>
+<div class="body"><h2>Musixvoice</h2><p class="mu">Music &amp; vocal space: drafts, takes, lyrics and release notes in one place. (Preview player is a visual mock-up.)</p>
+<div class="pl"><button class="pb" id="pb" aria-label="Play">▶</button><div class="wave" id="wv"></div><span class="tm" id="tm">0:00</span></div>
+<ul class="trk" id="trk"><li class="a" data-d="214"><span>01 first_hook_v3</span><span>3:34</span></li><li data-d="187"><span>02 vocal_take_12</span><span>3:07</span></li><li data-d="256"><span>03 night_demo</span><span>4:16</span></li></ul></div></section>
+
+<section class="card rv" id="nyasavault"><div class="top"><span>~$ nyasavault/storage.idx</span><span class="tag">VAULT</span></div>
+<div class="body"><h2>NyasaVault</h2><p class="mu">Structured archive for project files, prompts and records. Try the filter:</p>
+<input class="in" id="q" placeholder="search vault… (try: audio, log)" aria-label="Search vault">
+<ul class="files" id="fl"></ul></div></section>
+</div>
+
+<section class="card rv" id="smith"><div class="top"><span>~$ smith-agent/council.sh</span><span class="tag">MULTI-MODEL</span></div>
+<div class="body"><h2>Smith Agent</h2><p class="mu">Ask a question and watch the three lenses deliberate.</p>
+<div class="tabs" id="tabs"><button class="tab on" data-k="all">Council</button><button class="tab" data-k="d">DeepSeek</button><button class="tab" data-k="c">Claude</button><button class="tab" data-k="g">Gemini</button></div>
+<div class="ask"><input class="in" id="qs" placeholder="e.g. How should I secure NyasaVault?" aria-label="Question"><button class="btn p" id="go">RUN</button></div>
+<div class="con" id="out"><span class="m">Waiting for a question…</span></div>
+<p class="note">Demo mode: responses are templated, not live model calls. Connect real APIs on a backend to make this live.</p></div></section>
+
+<section class="card rv" id="about"><div class="top"><span>~$ about/author.txt</span><span class="tag">AUTHOR</span></div>
+<div class="body"><h2>About the developer</h2><p class="mu"><b>Ephraim Sibale</b> is the creator and developer of Musixvoice, NyasaVault and Smith Agent. These are works in progress: each one is being built, tested for security and flow, and improved step by step.</p>
+<ul class="rm"><li><span class="ck">›</span>Focus: music technology, secure storage, multi-AI tools</li><li><span class="ck">›</span>Status: building and testing in the open</li><li><span class="ck">›</span>Contact: <a href="mailto:ephraimsibale20@gmail.com" style="color:var(--ac)">ephraimsibale20@gmail.com</a></li><li><span class="ck">›</span>GitHub: <a href="https://github.com/EphraimSib" target="_blank" rel="noopener" style="color:var(--ac)">EphraimSib</a></li><li><span class="ck">›</span>LinkedIn: <a href="https://www.linkedin.com/in/ephraim-sibale-972344247" target="_blank" rel="noopener" style="color:var(--ac)">Ephraim Sibale</a></li></ul></div></section>
+
+<section class="card rv" id="roadmap"><div class="top"><span>~$ docs/roadmap.md</span><span class="tag">STATUS</span></div>
+<div class="body"><ul class="rm"><li><span class="ck">[x]</span>Unified hub design</li><li><span>[ ]</span>NyasaVault: security, flow &amp; automation testing</li><li><span>[ ]</span>Musixvoice: real audio upload &amp; playback</li><li><span>[ ]</span>Smith Agent: live DeepSeek + Claude + Gemini backend</li><li><span>[ ]</span>Register the app under government laws</li></ul></div></section>
+
+<section class="card rv"><div class="top"><span>~$ docs/faq.txt</span><span class="tag">NOTES</span></div>
+<div class="body">
+<div class="fq o"><button>01 How do the projects fit together? <span>+</span></button><p>Musixvoice is where music is made, NyasaVault is the safe archive behind it, and Smith Agent is the thinking partner that reviews plans for both.</p></div>
+<div class="fq"><button>02 How does Smith give realistic answers? <span>+</span></button><p>Each model attacks the question from a different angle (logic, structure, execution) and the council merges what survives.</p></div>
+<div class="fq"><button>03 Can I make it truly live? <span>+</span></button><p>Yes: add a small backend that holds API keys and calls each model, then point the RUN button at it. Never put keys in this page.</p></div>
+</div></section>
+<footer>~$ smith.hub · © 2026 Ephraim Sibale · all projects in development</footer>
+</main>
+
+<script>
+const $=s=>document.querySelector(s);
+// theme
+const r=document.documentElement;
+$('#th').onclick=()=>{const l=getComputedStyle(r).colorScheme==='light';r.dataset.theme=l?'dark':'light'};
+// typewriter
+const t='MUSIXVOICE × NYASAVAULT';let i=0;
+(function k(){$('#ty').textContent=t.slice(0,i++);if(i<=t.length)setTimeout(k,55)})();
+// counters
+document.querySelectorAll('[data-n]').forEach(e=>{const n=+e.dataset.n;let c=0;const s=setInterval(()=>{e.textContent=String(++c).padStart(2,'0');if(c>=n)clearInterval(s)},300)});
+// reveal
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in-v');io.unobserve(e.target)}}),{threshold:.08});
+document.querySelectorAll('.rv').forEach(e=>io.observe(e));
+// player mock
+const wv=$('#wv'),bars=[];
+for(let j=0;j<40;j++){const b=document.createElement('i');b.style.height=(18+Math.abs(Math.sin(j*1.7)*70))+'%';wv.appendChild(b);bars.push(b)}
+let dur=214,pos=0,tm=null;
+const f=s=>Math.floor(s/60)+':'+String(Math.floor(s%60)).padStart(2,'0');
+function draw(){bars.forEach((b,j)=>b.classList.toggle('on',j/bars.length<pos/dur));$('#tm').textContent=f(pos)}
+function stop(){clearInterval(tm);tm=null;$('#pb').textContent='▶'}
+$('#pb').onclick=()=>{if(tm)return stop();$('#pb').textContent='❚❚';tm=setInterval(()=>{pos+=dur/40/4;if(pos>=dur){pos=0;stop()}draw()},250)};
+document.querySelectorAll('#trk li').forEach(li=>li.onclick=()=>{document.querySelectorAll('#trk li').forEach(x=>x.classList.remove('a'));li.classList.add('a');dur=+li.dataset.d;pos=0;stop();draw()});
+draw();
+// vault
+const files=[['audio/first_hook_v3.wav','12 MB'],['audio/vocal_take_12.wav','9 MB'],['prompts/smith_council.md','4 KB'],['logs/smith_run_001.log','18 KB'],['docs/release_checklist.md','2 KB'],['backups/nyasavault_snapshot.zip','240 MB']];
+function rf(v=''){$('#fl').innerHTML=files.filter(x=>x[0].includes(v.toLowerCase())).map(x=>`<li><b>${x[0]}</b><span>${x[1]}</span></li>`).join('')||'<li>no matches</li>'}
+$('#q').oninput=e=>rf(e.target.value.trim());rf();
+// smith
+let mode='all';
+document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{document.querySelectorAll('.tab').forEach(x=>x.classList.remove('on'));b.classList.add('on');mode=b.dataset.k});
+const esc=s=>s.replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+let busy=false;
+$('#go').onclick=run;$('#qs').onkeydown=e=>{if(e.key==='Enter')run()};
+async function run(){
+ if(busy)return;const q=$('#qs').value.trim();if(!q)return;busy=true;const o=$('#out');o.innerHTML=`<span class="m">> ${esc(q)}</span>\n`;
+ const all={d:['d','DEEPSEEK','Break "'+q+'" into components. List failure points, edge cases and dependencies before building.'],c:['c','CLAUDE','Clarify the goal, weigh trade-offs, and flag assumptions that need evidence.'],g:['g','GEMINI','Turn the plan into small steps that fit the Musixvoice + NyasaVault workflow.']};
+ const keys=mode==='all'?['d','c','g']:[mode];
+ for(const k of keys){const [c,n,tx]=all[k];await new Promise(r=>setTimeout(r,600));o.innerHTML+=`\n<span class="${c}">[${n}]</span> ${esc(tx)}`;o.scrollTop=o.scrollHeight}
+ if(mode==='all'){await new Promise(r=>setTimeout(r,700));o.innerHTML+=`\n\n<span class="m">[CONSENSUS]</span> Start with the smallest testable version, verify the risky parts first, then expand.`}
+ busy=false}
+// faq
+document.querySelectorAll('.fq button').forEach(b=>b.onclick=()=>b.parentElement.classList.toggle('o'));
+</script>
+</body>
+</html>
