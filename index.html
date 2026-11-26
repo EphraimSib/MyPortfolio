@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ephraim Sibale | Developer · Musixvoice · NyasaVault · Smith Agent</title>
+<meta name="description" content="Portfolio of Ephraim Sibale: Musixvoice, NyasaVault and Smith Agent.">
+<style>
+:root{--bg:#090512;--s1:#110b1a;--s2:#1a1226;--tx:#fff;--mu:#a596c2;--c:#00ffff;--p:#ff2a85;--y:#ffe14d;--v:#9b4dff;--mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;--sans:Inter,system-ui,-apple-system,sans-serif;color-scheme:dark;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{background:var(--bg);background-image:radial-gradient(circle at 10% 5%,rgba(255,42,133,.12),transparent 40%),radial-gradient(circle at 90% 95%,rgba(0,255,255,.08),transparent 40%);background-attachment:fixed;color:var(--tx);font-family:var(--sans);line-height:1.6}
+a{color:inherit;text-decoration:none}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(9,5,18,.85);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,42,133,.3)}
+.w{max-width:1000px;margin:0 auto;padding:0 20px}
+.nav{display:flex;justify-content:space-between;align-items:center;height:56px;gap:12px}
+.brand{font:700 17px var(--mono)}.brand b{color:var(--p);text-shadow:0 0 12px var(--p)}
+.links{display:flex;gap:16px;font:12px var(--mono);overflow-x:auto}
+.links a{color:var(--mu);white-space:nowrap;transition:.2s}.links a:hover{color:var(--c);text-shadow:0 0 10px var(--c)}
+#pg{position:fixed;top:0;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--p),var(--c));z-index:60}
+section{padding:70px 0 10px}
+.lb{font:12px var(--mono);color:var(--p);letter-spacing:.15em;margin-bottom:10px}
+h1{font:700 clamp(32px,7vw,56px)/1.08 var(--mono);letter-spacing:-.03em;margin-bottom:16px}
+h2{font:700 clamp(22px,4vw,30px) var(--mono);margin-bottom:12px}
+.g{background:linear-gradient(90deg,var(--c),var(--p));-webkit-background-clip:text;background-clip:text;color:transparent}
+.cur{display:inline-block;width:.5ch;height:1em;background:var(--c);vertical-align:bottom;animation:b 1s steps(1) infinite}
+@keyframes b{50%{opacity:0}}
+.sub{color:var(--mu);max-width:60ch;margin-bottom:24px}
+.row{display:flex;flex-wrap:wrap;gap:12px}
+.btn{font:12.5px var(--mono);padding:11px 18px;border-radius:8px;border:1px solid var(--c);color:var(--c);cursor:pointer;background:transparent;transition:.2s}
+.btn.p{background:var(--p);border-color:var(--p);color:#000;font-weight:700;box-shadow:0 0 18px rgba(255,42,133,.5)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 0 18px rgba(0,255,255,.5)}
+.hero{display:grid;grid-template-columns:1.2fr 1fr;gap:30px;align-items:center;padding-top:60px}
+@media(max-width:760px){.hero{grid-template-columns:1fr}}
+.net{position:relative;height:240px}
+.net svg{position:absolute;inset:0;width:100%;height:100%}
+.net line{stroke-dasharray:5;animation:d 2s linear infinite}
+@keyframes d{to{stroke-dashoffset:-20}}
+.nd{position:absolute;width:14px;height:14px;border-radius:50%;transform:translate(-50%,-50%);animation:pl 2.4s ease-in-out infinite}
+@keyframes pl{50%{transform:translate(-50%,-50%) scale(1.5)}}
+.card{background:var(--s1);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:24px;margin-top:20px;position:relative;transition:.3s}
+.card:hover{border-color:var(--c);box-shadow:0 0 30px rgba(0,255,255,.12)}
+.st{display:inline-flex;gap:6px;align-items:center;font:11px var(--mono);color:var(--y);border:1px solid rgba(255,225,77,.4);border-radius:99px;padding:2px 10px;margin-bottom:12px}
+.st i{width:6px;height:6px;border-radius:50%;background:var(--y);animation:b 1.4s infinite}
+.st.ok{color:#4dff9b;border-color:rgba(77,255,155,.4)}.st.ok i{background:#4dff9b}
+.dl{margin-top:22px;padding-top:18px;border-top:1px solid rgba(255,255,255,.08)}
+.dl small{display:block;font:11.5px var(--mono);color:var(--mu);margin-top:12px}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+@media(max-width:760px){.cols{grid-template-columns:1fr}}
+.ft{list-style:none;font:13px var(--mono);color:var(--mu)}
+.ft li{padding:5px 0}.ft li:before{content:"› ";color:var(--p)}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.tags span{font:11px var(--mono);border:1px solid var(--v);color:var(--v);border-radius:6px;padding:2px 9px}
+.box{background:rgba(0,0,0,.4);border:1px solid rgba(0,255,255,.2);border-radius:12px;padding:16px}
+.box h3{font:600 12px var(--mono);color:var(--c);margin-bottom:12px;letter-spacing:.08em}
+.q{margin-bottom:12px}.q p{font:12px var(--mono);color:var(--mu);margin-bottom:6px}
+.ch{display:flex;flex-wrap:wrap;gap:6px}
+.ch button{font:12px var(--mono);padding:6px 11px;border-radius:6px;border:1px solid var(--mu);background:none;color:var(--mu);cursor:pointer;transition:.2s}
+.ch button.on{border-color:var(--p);color:var(--p);background:rgba(255,42,133,.12)}
+.res{margin-top:14px}
+.bar{display:flex;align-items:center;gap:10px;font:12px var(--mono);margin:6px 0}
+.bar span:first-child{width:90px}.bar .t{flex:1;height:8px;background:rgba(255,255,255,.07);border-radius:4px;overflow:hidden}
+.bar .f{height:100%;width:0;background:linear-gradient(90deg,var(--p),var(--c));transition:width .8s}
+.flow{display:flex;flex-direction:column;gap:10px}
+.step{display:flex;gap:12px;align-items:flex-start;padding:10px 12px;border:1px solid rgba(255,255,255,.08);border-radius:10px;font:12.5px var(--mono);color:var(--mu);transition:.3s}
+.step b{display:block;color:var(--tx)}
+.step.on{border-color:var(--c);color:var(--tx);box-shadow:0 0 16px rgba(0,255,255,.25);background:rgba(0,255,255,.05)}
+.dot{width:10px;height:10px;border-radius:50%;margin-top:5px;flex:none}
+.tl{display:flex;flex-direction:column;gap:10px;font:12.5px var(--mono)}
+.tl div{display:flex;gap:10px;align-items:center;color:var(--mu)}
+.tl .ok{color:var(--c)}.tl .now{color:var(--y)}
+.tl i{width:10px;height:10px;border-radius:50%;border:2px solid currentColor;flex:none}
+.tl .ok i{background:var(--c)}.tl .now i{animation:b 1.2s infinite}
+.cl a{color:var(--c)}
+footer{text-align:center;font:12px var(--mono);color:var(--mu);padding:60px 0 40px}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}.rv.v{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div id="pg"></div>
+<header><div class="w nav"><a href="#top" class="brand">ephraim<b>.dev</b></a>
+<nav class="links"><a href="#projects">Projects</a><a href="#musixvoice">Musixvoice</a><a href="#nyasavault">NyasaVault</a><a href="#smith">Smith Agent</a><a href="#contact">Contact</a></nav></div></header>
+
+<main class="w" id="top">
+<div class="hero">
+<div><p class="lb">&gt; DEVELOPER PORTFOLIO</p>
+<h1>Hi, I'm <span class="g">Ephraim Sibale</span><br><span id="ty"></span><span class="cur"></span></h1>
+<p class="sub">I build products at the edge of music, money and AI: a music player that learns your taste, an online banking platform, and a multi-model AI agent.</p>
+<div class="row"><a class="btn p" href="#projects">VIEW PROJECTS →</a><a class="btn" href="#contact">CONTACT ME</a></div></div>
+<div class="net" aria-hidden="true"><svg><line x1="50%" y1="50%" x2="18%" y2="22%" stroke="#ff2a85" stroke-width="2"/><line x1="50%" y1="50%" x2="82%" y2="25%" stroke="#00ffff" stroke-width="2"/><line x1="50%" y1="50%" x2="70%" y2="80%" stroke="#9b4dff" stroke-width="2"/><line x1="50%" y1="50%" x2="24%" y2="78%" stroke="#ffe14d" stroke-width="2"/></svg>
+<i class="nd" style="left:50%;top:50%;width:20px;height:20px;background:#ff2a85;box-shadow:0 0 20px #ff2a85"></i>
+<i class="nd" style="left:18%;top:22%;background:#00ffff;box-shadow:0 0 14px #00ffff;animation-delay:.3s"></i>
+<i class="nd" style="left:82%;top:25%;background:#ffe14d;box-shadow:0 0 14px #ffe14d;animation-delay:.8s"></i>
+<i class="nd" style="left:70%;top:80%;background:#9b4dff;box-shadow:0 0 14px #9b4dff;animation-delay:1.2s"></i>
+<i class="nd" style="left:24%;top:78%;background:#ff2a85;box-shadow:0 0 14px #ff2a85;animation-delay:1.6s"></i></div>
+</div>
+
+<section id="projects" class="rv"><p class="lb">&gt; 01 / PROJECTS</p><h2>Three products, one builder</h2>
+<p class="sub">Musixvoice is released for Android. NyasaVault and Smith Agent are in active development. Each card below describes what the project is, what it does and where it stands.</p></section>
+
+<section id="musixvoice" class="rv"><div class="card">
+<span class="st ok"><i></i>RELEASED · v1.0 · ANDROID</span><h2>Musixvoice <span class="g">// AI music player</span></h2>
+<p class="sub">A music player with built-in AI that learns what you listen to and discovers your genre by your music taste, then recommends where to go next.</p>
+<div class="cols"><div><ul class="ft"><li>Plays all the music on your phone offline and streams online</li><li>Queue, playlists, favorites, albums and artists</li><li>Lock-screen and notification controls with background playback</li><li>AI taste profile, genre discovery and mood mixes</li><li>7 futuristic themes, visualizer and equalizer</li></ul></div>
+<div class="box"><h3>TRY THE TASTE QUIZ (CONCEPT)</h3>
+<div class="q"><p>Mood</p><div class="ch" data-k="m"><button data-v="chill">Chill</button><button data-v="hype">Hype</button><button data-v="sad">Emotional</button><button data-v="focus">Focus</button></div></div>
+<div class="q"><p>Tempo</p><div class="ch" data-k="t"><button data-v="slow">Slow</button><button data-v="mid">Medium</button><button data-v="fast">Fast</button></div></div>
+<div class="q"><p>Vocals</p><div class="ch" data-k="v"><button data-v="voc">Vocals</button><button data-v="ins">Instrumental</button></div></div>
+<div class="res" id="res"><span style="font:12px var(--mono);color:var(--mu)">Pick one in each row…</span></div></div></div>
+<div class="dl"><div class="row"><a class="btn p" href="https://github.com/EphraimSib/Musixvoice/releases/latest/download/Musixvoice.apk">⬇ DOWNLOAD APK</a><a class="btn" href="https://github.com/EphraimSib/Musixvoice/releases" target="_blank" rel="noopener">ALL RELEASES</a><a class="btn" href="https://github.com/EphraimSib/Musixvoice" target="_blank" rel="noopener">SOURCE ON GITHUB</a></div>
+<small>Android APK · after downloading, allow “Install unknown apps” when your phone asks.</small></div>
+</div></section>
+
+<section id="nyasavault" class="rv"><div class="card">
+<span class="st"><i></i>IN DEVELOPMENT</span><h2>NyasaVault <span class="g">// online banking</span></h2>
+<p class="sub">An online banking platform built security-first. It is not live and holds no real money; testing and registration come before any public launch.</p>
+<div class="cols"><div><ul class="ft"><li>Accounts and balances</li><li>Transfers and transaction history</li><li>Strong authentication and encryption</li><li>Audit trails and fraud checks</li><li>Built for legal registration</li></ul>
+<div class="tags"><span>security</span><span>automation</span><span>compliance</span></div></div>
+<div class="box"><h3>ROADMAP</h3><div class="tl"><div class="ok"><i></i>Concept and core flow design</div><div class="now"><i></i>Finishing the app</div><div><i></i>Security, flow and automation testing</div><div><i></i>Live feature testing</div><div><i></i>Registration under government laws</div></div></div></div></div></section>
+
+<section id="smith" class="rv"><div class="card">
+<span class="st"><i></i>IN DEVELOPMENT</span><h2>Smith Agent <span class="g">// multi-model AI agent</span></h2>
+<p class="sub">An agent that combines DeepSeek, Claude and Gemini. Each model works on your question from its own angle, then they compare notes to reach one realistic answer.</p>
+<div class="cols"><div><ul class="ft"><li>Three models working on one task</li><li>Cross-checking to catch weak assumptions</li><li>One merged, practical answer</li><li>Helps improve the other two projects</li></ul></div>
+<div class="box"><h3>HOW A QUESTION FLOWS</h3><div class="flow" id="fl">
+<div class="step"><i class="dot" style="background:#00ffff"></i><span><b>1 · DeepSeek</b>Logic, code and failure points</span></div>
+<div class="step"><i class="dot" style="background:#ff2a85"></i><span><b>2 · Claude</b>Reasoning, trade-offs, clarity</span></div>
+<div class="step"><i class="dot" style="background:#ffe14d"></i><span><b>3 · Gemini</b>Synthesis and next steps</span></div>
+<div class="step"><i class="dot" style="background:#9b4dff"></i><span><b>4 · Consensus</b>One realistic answer</span></div></div></div></div></div></section>
+
+<section id="contact" class="rv"><p class="lb">&gt; 02 / CONTACT</p><h2>Let's build something</h2>
+<p class="sub">Open to collaboration, feedback and testers as the projects grow.</p>
+<div class="row cl"><a class="btn p" href="mailto:ephraimsibale20@gmail.com">EMAIL ME</a><a class="btn" href="https://github.com/EphraimSib" target="_blank" rel="noopener">GITHUB</a><a class="btn" href="https://www.linkedin.com/in/ephraim-sibale-972344247" target="_blank" rel="noopener">LINKEDIN</a></div></section>
+</main>
+<footer>~$ © 2026 Ephraim Sibale · ephraimsibale20@gmail.com</footer>
+
+<script>
+const $=s=>document.querySelector(s);
+const t='Developer & Builder';let i=0;
+(function k(){$('#ty').textContent=t.slice(0,i++);if(i<=t.length)setTimeout(k,70)})();
+const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('v');io.unobserve(x.target)}}),{threshold:.08});
+document.querySelectorAll('.rv').forEach(e=>io.observe(e));
+addEventListener('scroll',()=>{const h=document.documentElement;$('#pg').style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%'},{passive:true});
+// taste quiz: scores per genre
+const G={'Lo-fi / Chill':{m:{chill:3,focus:2},t:{slow:2,mid:1},v:{ins:2}},'Afrobeats':{m:{hype:2,chill:1},t:{mid:3,fast:1},v:{voc:2}},'Hip-Hop':{m:{hype:2,focus:1},t:{mid:2,fast:1},v:{voc:3}},'R&B / Soul':{m:{sad:3,chill:2},t:{slow:2,mid:1},v:{voc:3}},'Electronic / EDM':{m:{hype:3,focus:1},t:{fast:3},v:{ins:2}},'Ambient / Classical':{m:{focus:3,sad:1},t:{slow:3},v:{ins:3}}};
+const a={};
+document.querySelectorAll('.ch').forEach(g=>g.querySelectorAll('button').forEach(b=>b.onclick=()=>{g.querySelectorAll('button').forEach(x=>x.classList.remove('on'));b.classList.add('on');a[g.dataset.k]=b.dataset.v;if(a.m&&a.t&&a.v)show()}));
+function show(){const sc=Object.entries(G).map(([n,r])=>[n,(r.m[a.m]||0)+(r.t[a.t]||0)+(r.v[a.v]||0)]).sort((x,y)=>y[1]-x[1]).slice(0,3);const mx=Math.max(sc[0][1],1);
+$('#res').innerHTML='<div style="font:12px var(--mono);color:var(--c);margin-bottom:4px">Your top genres:</div>'+sc.map(s=>`<div class="bar"><span>${s[0]}</span><div class="t"><div class="f" data-w="${Math.round(s[1]/mx*100)}"></div></div></div>`).join('');
+requestAnimationFrame(()=>document.querySelectorAll('.f').forEach(f=>f.style.width=f.dataset.w+'%'))}
+// agent flow highlight
+const st=[...document.querySelectorAll('.step')];let n=0;
+setInterval(()=>{st.forEach((s,j)=>s.classList.toggle('on',j===n));n=(n+1)%st.length},1400);
+</script>
+</body>
+</html>
